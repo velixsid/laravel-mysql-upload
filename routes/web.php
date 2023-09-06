@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [UploadController::class, 'index'])->name('halaman.pertama');
+
+Route::post('/', [UploadController::class, 'upload'])->name('upload');
+
+Route::get('/hapus/{id}', [UploadController::class, 'hapus'])->name('hapus');

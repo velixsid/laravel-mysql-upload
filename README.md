@@ -6,4 +6,27 @@
 ```bash
 git clone https://github.com/velixs-id/laravel-mysql-upload.git
 ```
+Copy File .env.example menjadi .env
 
+```bash
+# terminal command
+cp .env.example .env
+```
+Buka file .env dan edit local ke public. jangan lupa konfigurasi databasenya juga
+```bash
+#before
+FILESYSTEM_DISK=local
+
+#after
+FILESYSTEM_DISK=public
+```
+
+```bash
+composer install
+
+php artisan migrate
+
+php artisan storage:link
+
+php artisan serve
+```
